@@ -13,7 +13,7 @@ class TestHuggingFaceImport(unittest.TestCase):
 
     def test_gpt2(self):
         model_type = 'gpt2'
-        device = 'cuda' if torch.cuda.is_available() else 'cpu'
+        device = 'cuda' if torch.cuda.is_available() else 'mps' if torch.mps.is_available() else 'cpu'
         prompt = "Hello!!!!!!!!!? 🤗, my dog is a little"
 
         # create a minGPT and a huggingface/transformers model
